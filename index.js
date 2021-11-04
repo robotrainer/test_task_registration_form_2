@@ -8,6 +8,8 @@ const passwordRepeat = registration.querySelector(".passwordRepeat");
 const birthDate = registration.querySelector(".birthDate");
 const fields = registration.querySelectorAll(".field");
 
+const passwordRegExp = /(?=.*[0-9])(?=.*[^\w\s])(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+
 registration.addEventListener("submit", function (event) {
   event.preventDefault();
 
@@ -27,7 +29,15 @@ registration.addEventListener("submit", function (event) {
     }
   }
 
-  if (password.value != passwordRepeat.value) {
+  if (!passwordRegExp.test(password.value)) {
+    let error = document.createElement("div");
+    error.classList = "error";
+    error.style.color = "red";
+    error.innerHTML = "Минимальная длина пароля 8 символов. Пароль должен содержать минимум одну цифру, одну заглавную, одну строчную буквы, и один символ";
+    password.parentElement.insertBefore(error, password.nextElementSibling);
+  }
+
+  else if (password.value != passwordRepeat.value) {
     let error = document.createElement("div");
     error.classList = "error";
     error.style.color = "red";
