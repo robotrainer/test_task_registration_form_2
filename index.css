@@ -51,12 +51,15 @@ label.birhtDateText {
 .birthText {
   margin: auto;
   width: 27rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 2px;
+  padding-right: 2px;
   background-color: rgb(27,31,33);
-  border: 2px solid rgb(27,31,33);
+  border-left: 1rem solid rgb(27,31,33);
+  border-right: 1rem solid rgb(27,31,33);
+  border-top: 2px solid rgb(27,31,33);
   padding-bottom: 2px;
   text-align: left;
+  border-bottom: 2px solid rgb(52, 57, 60);
 }
 
 .error {

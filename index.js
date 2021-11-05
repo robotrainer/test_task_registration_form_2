@@ -53,7 +53,7 @@ registration.addEventListener("submit", (event) => {
   }
 
   if (!passwordRegExp.test(password.value) && password.value != "") {
-    const errorText = "Минимальная длина пароля 8 символов. Пароль должен содержать минимум одну цифру, одну заглавную, одну строчную буквы, и один символ";
+    const errorText = "Минимальная длина пароля 8 символов. Пароль должен содержать минимум одну цифру, одну заглавную, одну строчную буквы и один символ";
     addError(errorText, password);
   }
   if (password.value != passwordRepeat.value && passwordRepeat.value != "") {
