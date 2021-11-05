@@ -11,14 +11,17 @@ const nameRegExp = /^(?=.{1,255}$)([A-Za-zА-Яа-яЁё]+)$/;
 const emailRegExp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 const passwordRegExp = /(?=.*[0-9])(?=.*[^\w\s])(?=.*[a-z])(?=.*[A-Z]).{8,}/;
 
-function addError(errorText) {
+function addError(errorText, node) {
   let error = document.createElement("div");
   error.classList = "error";
   error.innerHTML = errorText;
+  if (node) {
+    node.parentElement.insertBefore(error, node.nextElementSibling);
+  }
   return error;
 }
 
-registration.addEventListener("submit", function (event) {
+registration.addEventListener("submit", (event) => {
   event.preventDefault();
 
   let errors = registration.querySelectorAll(".error");
@@ -29,32 +32,33 @@ registration.addEventListener("submit", function (event) {
 
   for (let i = 0; i < fields.length; i++) {
     if (!fields[i].value) {
-      const error = addError("Поле не заполненно");
+      const errorText = "Поле не заполненно";
+      const error = addError(errorText);
       registration[i].parentElement.insertBefore(error, fields[i].nextElementSibling);
     }
   }
 
   if (!nameRegExp.test(firstName.value) && firstName.value != "") {
-    const error = addError("Имя содержит недопустимые символы");
-    firstName.parentElement.insertBefore(error, firstName.nextElementSibling);
+    const errorText = "Имя содержит недопустимые символы";
+    addError(errorText, firstName);
   }
   if (!nameRegExp.test(lastName.value) && lastName.value != "") {
-    const error = addError("Фамилия содержит недопустимые символы");
-    lastName.parentElement.insertBefore(error, lastName.nextElementSibling);
+    const errorText = "Фамилия содержит недопустимые символы";
+    addError(errorText, lastName);
   }
 
   if (!emailRegExp.test(email.value) && email.value != "") {
-    const error = addError("Неверно указан email-адрес");
-    email.parentElement.insertBefore(error, email.nextElementSibling);
+    const errorText = "Неверно указан email-адрес";
+    addError(errorText, email);
   }
 
   if (!passwordRegExp.test(password.value) && password.value != "") {
-    const error = addError("Минимальная длина пароля 8 символов. Пароль должен содержать минимум одну цифру, одну заглавную, одну строчную буквы, и один символ");
-    password.parentElement.insertBefore(error, password.nextElementSibling);
+    const errorText = "Минимальная длина пароля 8 символов. Пароль должен содержать минимум одну цифру, одну заглавную, одну строчную буквы, и один символ";
+    addError(errorText, password);
   }
   if (password.value != passwordRepeat.value && passwordRepeat.value != "") {
-    const error = addError("Пароли не совпадают");
-    passwordRepeat.parentElement.insertBefore(error, passwordRepeat.nextElementSibling);
+    const errorText = "Пароли не совпадают";
+    addError(errorText, passwordRepeat);
   }
   if (birthDate.value != "") {
     const birthDateArray = birthDate.value.split("-");
@@ -70,8 +74,8 @@ registration.addEventListener("submit", function (event) {
     limitationsAgeDate.setFullYear(userBirthDate.getFullYear() + limitationsAge, birthMonth, birthDay);
 
     if ((nowDate - limitationsAgeDate) < 0) {
-      const error = addError("Вам нет 18 лет");
-      birthDate.parentElement.insertBefore(error, birthDate.nextElementSibling);
+      const errorText = "Вам нет 18 лет";
+      addError(errorText, birthDate);
     }
   }
 });

@@ -11,15 +11,17 @@
 
 <body>
   <form class="registration">
-    <div class="row"><input class="firstName field" placeholder="Имя"></div>
-    <div class="row"><input class="lastName field" placeholder="Фамилия"></div>
-    <div class="row"><input class="email field" type="text" id="email" placeholder="Email"></div>
-    <div class="row"><input class="password field" type="password" autocomplete="on" placeholder="Пароль"></div>
-    <div class="row"><input class="passwordRepeat field" type="password" autocomplete="on"
-        placeholder="Подтверждение пароля"></div>
-    <label for="birthDate">Дата рождения:</label>
-    <div class="row"><input class="birthDate field" type="date"></div>
-    <div class="row"><input class="button" type="submit"></div>
+    <h2>Регистрация</h2>
+    <div><input class="firstName field" placeholder="Имя"></div>
+    <div><input class="lastName field" placeholder="Фамилия"></div>
+    <div><input class="email field" type="text" id="email" placeholder="Email"></div>
+    <div><input class="password field" type="password" autocomplete="on" placeholder="Пароль"></div>
+    <div><input class="passwordRepeat field" type="password" autocomplete="on" placeholder="Подтверждение пароля"></div>
+    <div>
+      <div class="birthText"><label for="birthDate" class="birhtDateText">Дата рождения:</label></div><input
+        class="birthDate field" type="date">
+    </div>
+    <div><input class="button" type="submit"></div>
   </form>
   <script src="index.js"></script>
 </body>

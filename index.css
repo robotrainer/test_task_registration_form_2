@@ -1,3 +1,77 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: rgb(52, 57, 60);
+}
+
+h2 {
+  color: white;
+}
+
+.registration {
+  text-align: center;
+  margin-top: 6rem;
+}
+
+input {
+  outline: none;
+}
+
+input[placeholder] {
+  color: rgb(99,105,107);
+}
+
+input.button {
+  font-size: 20px;
+  color: white;
+  padding:10px 20px;
+  margin-top: 10px;
+  background:rgb(27,31,33); 
+  border:0 none;
+  cursor:pointer;
+  border-radius: 0; 
+}
+
+input.button:hover {
+  background-color: rgba(27,31,33, 0.7);
+}
+
+input.button:active {
+  background-color: rgb(27,31,33);
+}
+
+.birthDate {
+  color: rgb(99,105,107);
+}
+
+label.birhtDateText {
+  color: rgb(99,105,107);
+  font-size: 20px;
+}
+
+.birthText {
+  margin: auto;
+  width: 27rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: rgb(27,31,33);
+  border: 2px solid rgb(27,31,33);
+  padding-bottom: 2px;
+  text-align: left;
+}
+
 .error {
   color: red;
+  margin-top: -21.6px;
+  top: 0%;
+}
+
+.field {
+  width: 27rem;
+  height: 3rem;
+  font-size: 20px;
+  border: 2px solid rgb(27,31,33);
+  background-color: rgb(27,31,33);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-bottom: 20px;
 }
