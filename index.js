@@ -62,9 +62,9 @@ registration.addEventListener("submit", (event) => {
   }
   if (birthDate.value != "") {
     const birthDateArray = birthDate.value.split("-");
-    const birthDay = birthDateArray[2];
-    const birthMonth = birthDateArray[1] - 1;
-    const birthYear = birthDateArray[0];
+    const birthDay = parseInt(birthDateArray[2]);
+    const birthMonth = parseInt(birthDateArray[1]) - 1;
+    const birthYear = parseInt(birthDateArray[0]);
     const limitationsAge = 18;
 
     let userBirthDate = new Date();
